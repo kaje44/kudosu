@@ -10,13 +10,15 @@ import android.widget.TextView;
 public class KudosuAdapter extends BaseAdapter {
 
     private Context mContext;
-    private final String[] web;
+    private Matrix m_mx;
+    private final int COUNT = 81;
 
 
-    public KudosuAdapter(Context c, String[] web ) {
+    public KudosuAdapter(Context c, Matrix p_mx ) {
+
         mContext = c;
+        this.m_mx = p_mx;
 
-        this.web = web;
     }
 
     //----------------------------------------------------------------------------------------------
@@ -24,7 +26,7 @@ public class KudosuAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return web.length;
+        return COUNT;
     }
 
     //----------------------------------------------------------------------------------------------
@@ -55,7 +57,7 @@ public class KudosuAdapter extends BaseAdapter {
         if (convertView == null) {
 
             tv = new TextView(mContext);
-            tv.setText(web[position]);
+            tv.setText( String.valueOf(m_mx.getItem(position)) );
 
         } else {
             tv = (TextView) convertView;

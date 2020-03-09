@@ -16,19 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     GridView board;
-    int[][] matrix = {
-
-         { 8, 0, 0, 0, 0, 0, 0, 0, 0 },
-         { 0, 0, 3, 6, 0, 0, 0, 0, 0 },
-         { 0, 7, 0, 0, 9, 0, 2, 0, 0 },
-         { 0, 5, 0, 0, 0, 7, 0, 0, 0 },
-         { 0, 0, 0, 0, 4, 5, 7, 0, 0 },
-         { 0, 0, 0, 1, 0, 0, 0, 3, 0 },
-         { 0, 0, 1, 0, 0, 0, 0, 6, 8 },
-         { 0, 0, 8, 5, 0, 0, 0, 1, 0 },
-         { 0, 9, 0, 0, 0, 0, 4, 0, 0 }
-
-    };
 
     //----------------------------------------------------------------------------------------------
 
@@ -40,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Matrix matrix = new Matrix();
         KudosuAdapter adapter = new KudosuAdapter(this, matrix);
         board = (GridView)findViewById(R.id.board_grid);
         board.setAdapter(adapter);
@@ -48,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(MainActivity.this, "You Clicked at " +matrix[+ position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "You Clicked at " + String.valueOf(position), Toast.LENGTH_SHORT).show();
 
             }
         });
