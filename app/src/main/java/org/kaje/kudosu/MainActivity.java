@@ -9,12 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    KudosuAdapter m_adapter;
     GridView board;
 
     //----------------------------------------------------------------------------------------------
@@ -28,16 +28,100 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Matrix matrix = new Matrix();
-        KudosuAdapter adapter = new KudosuAdapter(this, matrix);
-        board = (GridView)findViewById(R.id.board_grid);
-        board.setAdapter(adapter);
+        m_adapter = new KudosuAdapter(this, matrix);
+
+        initUi();
+    }
+
+    //----------------------------------------------------------------------------------------------
+
+
+    private void initUi() {
+
+        board = (GridView) findViewById(R.id.board_grid);
+        board.setAdapter(m_adapter);
         board.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(MainActivity.this, "You Clicked at " + String.valueOf(position), Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                m_adapter.setCursor(position);
+            }
+        });
 
+        final Button buttonH = findViewById(R.id.buttonH);
+        buttonH.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.help();
+            }
+        });
+
+        final Button buttonC = findViewById(R.id.buttonC);
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.check();
+            }
+        });
+
+        final Button button1 = findViewById(R.id.button1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(1);
+            }
+        });
+
+        final Button button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(2);
+            }
+        });
+
+        final Button button3 = findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(3);
+            }
+        });
+
+        final Button button4 = findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(4);
+            }
+        });
+
+        final Button button5 = findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(5);
+            }
+        });
+
+        final Button button6 = findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(6);
+            }
+        });
+
+        final Button button7 = findViewById(R.id.button7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(7);
+            }
+        });
+
+        final Button button8 = findViewById(R.id.button8);
+        button8.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(8);
+            }
+        });
+
+        final Button button9 = findViewById(R.id.button9);
+        button9.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(9);
             }
         });
 
