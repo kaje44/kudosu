@@ -2,11 +2,15 @@
 
 package org.kaje.kudosu;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 class Matrix {
 
+    private static final int COUNT = 81;
     private static final int SIZE = 9;
     private static final int[] m_line = {1,2,3,4,5,6,7,8,9};
-    public static final int MEDIUM_LEVEL = 26;
+    //public static final int MEDIUM_LEVEL = 26;
 
     private int[][] m_mx = {
 
@@ -113,4 +117,34 @@ class Matrix {
 
     }
 
+    //----------------------------------------------------------------------------------------------
+
+    void setItem(int p_pos, int p_val) {
+
+        int row = 0;
+        int col = 0;
+        if ( p_pos > 0) {
+            row = p_pos / SIZE;
+            col = p_pos % SIZE;
+        }
+        m_mx[row][col] = p_val;
+
+    }
+
+    //----------------------------------------------------------------------------------------------
+
+    Collection<Integer> getHelp(int p_pos) {
+
+        int num = getItem( p_pos );
+        Collection<Integer> ret = new ArrayList<>();
+
+        for (int i = 0; i < COUNT; i++) {
+            int inum = getItem( i );
+            if ( inum == num ) {
+                ret.add(i);
+            }
+        }
+
+        return ret;
+    }
 }
