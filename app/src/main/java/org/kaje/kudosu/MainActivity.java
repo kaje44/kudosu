@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Matrix matrix = new Matrix();
+        matrix.newTable();
         m_adapter = new KudosuAdapter(this, matrix);
 
         initUi();
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUi() {
 
-        board = (GridView) findViewById(R.id.board_grid);
+        board = findViewById(R.id.board_grid);
         board.setAdapter(m_adapter);
         board.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -122,6 +123,13 @@ public class MainActivity extends AppCompatActivity {
         button9.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 m_adapter.setValue(9);
+            }
+        });
+
+        final Button button0 = findViewById(R.id.button0);
+        button0.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_adapter.setValue(0);
             }
         });
 
