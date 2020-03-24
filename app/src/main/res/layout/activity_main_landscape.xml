@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/ToolBarStyle" />
+
+    <GridView
+        android:id="@+id/board_grid"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:background="@color/tableBackground"
+        android:columnWidth="25sp"
+        android:gravity="center"
+        android:horizontalSpacing="1sp"
+        android:numColumns="9"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1sp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/buttonH"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="H"
+                android:textColor="@color/helpButtomText" />
+
+            <Button
+                android:id="@+id/buttonC"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="C"
+                android:textColor="@color/checkButtonText" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="3" />
+
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="6" />
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="9" />
+
+        </TableRow>
+
+
+        <TableRow android:gravity="center">
+
+            <Button
+                android:id="@+id/button0"
+                style="@style/buttonNum"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="0" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
+
+        </TableRow>
+
+
+    </TableLayout>
+</LinearLayout>

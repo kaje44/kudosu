@@ -1,21 +1,27 @@
 package org.kaje.kudosu;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+
 
 public class MainActivity extends AppCompatActivity {
 
     KudosuAdapter m_adapter;
     GridView board;
+    private int m_orientation = 1;
 
     //----------------------------------------------------------------------------------------------
 
@@ -23,13 +29,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setContentView(R.layout.activity_main_portrait);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        Matrix matrix = new Matrix();
-        matrix.newTable();
-        m_adapter = new KudosuAdapter(this, matrix);
+        m_adapter = new KudosuAdapter(this);
+        m_adapter.newTable();
 
         initUi();
     }
@@ -38,6 +42,37 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initUi() {
+
+        setContentView( ( m_orientation == 1 ) ? R.layout.activity_main_portrait : R.layout.activity_main_landscape);
+
+        ActionBar toolbar = getSupportActionBar();
+        if ( toolbar == null ) {
+            setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+            toolbar = getSupportActionBar();
+        }
+
+        PackageInfo pInfo;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            String ver = pInfo.versionName;
+            String title = " Kudosu " + ver + " - KaJe 2020";
+            setTitle(title);
+            toolbar.setTitle(title);
+        } catch (PackageManager.NameNotFoundException e) {
+
+            e.printStackTrace();
+
+        }//if
+
+        if ( m_orientation == 1 ) {
+
+            toolbar.show();
+
+        } else {
+
+            toolbar.hide();
+
+        }
 
         board = findViewById(R.id.board_grid);
         board.setAdapter(m_adapter);
@@ -148,16 +183,41 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+
+            case R.id.menu_quit:
+                finishAffinity();
+                System.exit(0);
+                return true;
+
+            case R.id.menu_check:
+                m_adapter.check();
+                return true;
+
+            case R.id.menu_newgame:
+                m_adapter.newTable();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
         }
 
-        return super.onOptionsItemSelected(item);
     }
+
+    //----------------------------------------------------------------------------------------------
+
+    @Override
+    public void onConfigurationChanged(Configuration p_config) {
+
+        super.onConfigurationChanged(p_config);
+        m_orientation = p_config.orientation;
+        initUi();
+
+    }
+
+
 }

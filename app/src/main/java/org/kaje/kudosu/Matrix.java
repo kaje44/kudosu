@@ -185,10 +185,14 @@ class Matrix {
         int num = getItem( p_pos );
         Collection<Integer> ret = new ArrayList<>();
 
-        for (int i = 0; i < COUNT; i++) {
-            int inum = getItem( i );
-            if ( inum == num ) {
-                ret.add(i);
+        if ( num > 0 ) {
+            for (int i = 0; i < COUNT; i++) {
+
+                int inum = getItem(i);
+                if (inum == num) {
+                    ret.add(i);
+                }
+
             }
         }
 
@@ -202,10 +206,13 @@ class Matrix {
         int min = 3;
         int max = 4;
         ArrayList<Integer> line  = new ArrayList<>();
+
         for( int i = 0; i < SIZE; i++ ) {
+
             int xcount = (int) (Math.random() * ((max - min) + 1)) + min;
             int count = 0;
             line.clear();
+
             while ( count < xcount) {
                 int ran = (int) (Math.random() * 8);
                 if ( !line.contains(ran) ) {
@@ -217,6 +224,7 @@ class Matrix {
             for( int ii = 0; ii < line.size(); ii++ ) {
                 m_fixboard.add(m_mi[i][line.get(ii)]-1);
             }//for
+
         }//for
 
         for( int x = 0; x < m_fixboard.size(); x++ ) {
