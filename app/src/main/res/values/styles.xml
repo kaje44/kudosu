@@ -27,15 +27,13 @@
     <style name="fixStyle" parent="@android:style/TextAppearance">
         <item name="android:textSize">24dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:paddingTop">20dp</item>
-        <item name="android:paddingBottom">20dp</item>
+        <item name="android:padding">20dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/text</item>
     </style>
 
     <style name="normStyle" parent="@android:style/TextAppearance">
-        <item name="android:paddingTop">20dp</item>
-        <item name="android:paddingBottom">20dp</item>
+        <item name="android:padding">20dp</item>
         <item name="android:textSize">24dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/text</item>
@@ -43,9 +41,11 @@
 
 
     <style name="buttonNum" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:layout_margin">2dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">24dp</item>
         <item name="android:textColor">@color/buttoText</item>
+        <item name="android:background">@drawable/num_buttons</item>
     </style>
 
 </resources>

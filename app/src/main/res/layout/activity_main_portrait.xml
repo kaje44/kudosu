@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -18,9 +18,10 @@
     <GridView
         android:id="@+id/board_grid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="330dp"
         android:background="@color/tableBackground"
-        android:columnWidth="25sp"
+        android:columnWidth="24dp"
+        android:rowHeight="24dp"
         android:gravity="center"
         android:horizontalSpacing="1sp"
         android:numColumns="9"
@@ -31,7 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:gravity="center"
+        android:padding="10dp">
 
         <TableRow
             android:layout_width="match_parent"

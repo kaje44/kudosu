@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
+    android:gravity="center"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
@@ -16,7 +16,7 @@
 
     <GridView
         android:id="@+id/board_grid"
-        android:layout_width="383dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:background="@color/tableBackground"
         android:columnWidth="25sp"
@@ -26,11 +26,20 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="1sp" />
 
-    <TableLayout
+
+    <Space
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <TableLayout
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="10dp">
 
 
         <TableRow
@@ -88,9 +97,6 @@
 
         <TableRow android:gravity="center">
 
-            <Space
-                android:layout_width="60dp"
-                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/button4"
@@ -113,9 +119,6 @@
                 android:layout_height="wrap_content"
                 android:text="6" />
 
-            <Space
-                android:layout_width="60dp"
-                android:layout_height="wrap_content" />
 
         </TableRow>
 
@@ -155,14 +158,13 @@
                 android:text="0" />
         </TableRow>
 
-        <TableRow android:gravity="center">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="60dp" />
-
-        </TableRow>
+        <TableRow android:gravity="center"/>
 
 
     </TableLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 </LinearLayout>
